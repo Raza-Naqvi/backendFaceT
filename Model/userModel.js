@@ -36,14 +36,14 @@ const userSchema = new Schema({
     city: {
         type: String
     },
-    geometry: {
-        type: pointSchema,
-        default: {
-            type: "point",
-            coordinates: [0, 0]
-        },
-        index: "2dsphere"
-    },
+    // geometry: {
+    //     type: pointSchema,
+    //     default: {
+    //         type: "point",
+    //         coordinates: [0, 0]
+    //     },
+    //     index: "2dsphere"
+    // },
 });
 
 module.exports = mongoose.model("UserSchema", userSchema);

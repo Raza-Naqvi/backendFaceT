@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
-export const middleWareFunc = (req, res, next) => {
+exports.middleWareFunc = (req, res, next) => {
     const bearerHeader = req.headers["authorization"];
     if (typeof bearerHeader !== "undefined") {
         const bearer = bearerHeader.split(" ");
@@ -15,9 +15,8 @@ export const middleWareFunc = (req, res, next) => {
                 });
             } else {
                 req.user = Authdata;
-
                 next();
-            }
+            };
         });
     } else {
         return res.json({
@@ -25,5 +24,5 @@ export const middleWareFunc = (req, res, next) => {
             auth: "authFailed",
             statusCode: 403,
         });
-    }
+    };
 };

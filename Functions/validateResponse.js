@@ -1,4 +1,4 @@
-export const successResponse = (req, res, data = {}) => {
+exports.successResponse = (req, res, data = {}) => {
     res.status(200).send({
         error: false,
         success: true,
@@ -8,7 +8,7 @@ export const successResponse = (req, res, data = {}) => {
     });
 };
 
-export const failResponse = (req, res, data = {}, extra) => {
+exports.failResponse = (req, res, data = {}, extra) => {
     res.status(200).send({
         error: false,
         success: false,
@@ -19,12 +19,12 @@ export const failResponse = (req, res, data = {}, extra) => {
     });
 };
 
-export const errorResponse = (req, res, errorDesc, errorKey, resCode = 500) => {
+exports.errorResponse = (req, res, errorDesc, errorKey, resCode = 500) => {
     console.log(">>>>>>>>>>>>>   ERROR\n", errorDesc);
     try {
     } catch (error) {
         console.log(error);
-    }
+    };
     res.status(500).send({
         error: true,
         errorKey,
