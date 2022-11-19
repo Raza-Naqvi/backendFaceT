@@ -36,6 +36,10 @@ const userSchema = new Schema({
     city: {
         type: String
     },
+    isAdmin: {
+        type: Number,
+        default: 0
+    }
     // geometry: {
     //     type: pointSchema,
     //     default: {
