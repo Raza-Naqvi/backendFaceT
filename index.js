@@ -28,6 +28,6 @@ app.listen(port, () => {
 });
 
 app.use("/user", require("./Routes/userRoutes"));
-// app.use("/", require("./routes/categoryRoute"));
+app.use("/product", require("./Routes/productRoute"));
 // app.use("/", require("./routes/subCategoryRoute"));
 // app.use("/", require("./routes/serviceTypeRoute"));

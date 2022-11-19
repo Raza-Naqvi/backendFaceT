@@ -21,10 +21,10 @@ exports.signIn = async (req, res) => {
         const result = await userFuncs.fetchUser(req.body);
         if (!result) {
             return response.failResponse(req, res, "no user found with this email!");
-        }
+        };
         if (result.password !== req.body.password) {
             return response.failResponse(req, res, " incorrect password ");
-        }
+        };
         const token = jwt.sign(
             {
                 id: result.id,
@@ -36,10 +36,9 @@ exports.signIn = async (req, res) => {
         );
         const data = { token: token, userId: result.id, firstLogin: result.firstLogin };
         return response.successResponse(req, res, data);
-    }
-    catch (error) {
+    } catch (error) {
         return response.errorResponse(req, res, error);
-    }
+    };
 };
 
 exports.updateProfile = async (req, res) => {
