@@ -10,3 +10,8 @@ exports.fetchProduct = async () => {
     const fetchProduct = await productModel.find();
     return fetchProduct;
 };
+
+exports.countProduct = async () => {
+    const total = await productModel.count();
+    return total;
+};

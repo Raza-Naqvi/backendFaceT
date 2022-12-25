@@ -78,3 +78,16 @@ exports.verifyAccount = async (req, res) => {
         return response.errorResponse(req, res, error);
     };
 };
+
+exports.totalUser = async (req, res) => {
+    try {
+        const count = await userFuncs.countUser();
+        if (count) {
+            return response.successResponse(res, res, count);
+        } else {
+            return response.failResponse(req, res, "Something Went Wrong");
+        };
+    } catch (e) {
+        return response.errorResponse(req, res, e);
+    };
+};

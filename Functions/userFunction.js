@@ -40,3 +40,8 @@ exports.verify = async (otp) => {
     const code = await userModel.findOne({ otp: otp });
     return code;
 };
+
+exports.countUser = async () => {
+    const count = await userModel.count();
+    return count;
+};

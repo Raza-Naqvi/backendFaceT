@@ -26,3 +26,16 @@ exports.listProduct = async (req, res) => {
         return response.errorResponse(req, res, e);
     };
 };
+
+exports.totalProduct = async (req, res) => {
+    try {
+        const count = await productFuncs.countProduct();
+        if (count) {
+            return response.successResponse(req, res, count);
+        } else {
+            return response.failResponse(req, res, "Something went wrong");
+        };
+    } catch (e) {
+        return response.errorResponse(req, res, e);
+    };
+};

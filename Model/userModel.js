@@ -39,6 +39,10 @@ const userSchema = new Schema({
     isAdmin: {
         type: Number,
         default: 0
+    },
+    isDelete: {
+        type: Number,
+        default: 0
     }
     // geometry: {
     //     type: pointSchema,
