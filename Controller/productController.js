@@ -39,3 +39,16 @@ exports.totalProduct = async (req, res) => {
         return response.errorResponse(req, res, e);
     };
 };
+
+exports.getProductById = async (req, res) => {
+    try {
+        const get = await productFuncs.fetchProductById(req.body);
+        if (get) {
+            return response.successResponse(res, res, get);
+        } else {
+            return response.failResponse(req, res, "Something Went Wrong");
+        };
+    } catch (e) {
+        return response.errorResponse(req, res, e);
+    };
+};

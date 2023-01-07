@@ -23,7 +23,7 @@ exports.signIn = async (req, res) => {
             return response.failResponse(req, res, "no user found with this email!");
         };
         if (result.password !== req.body.password) {
-            return response.failResponse(req, res, " incorrect password ");
+            return response.failResponse(req, res, "incorrect password ");
         };
         const token = jwt.sign(
             {
@@ -34,7 +34,7 @@ exports.signIn = async (req, res) => {
             "FaceT.FYP",
             { expiresIn: "5d" }
         );
-        const data = { token: token, userId: result.id, firstLogin: result.firstLogin };
+        const data = { token: token, user: result };
         return response.successResponse(req, res, data);
     } catch (error) {
         return response.errorResponse(req, res, error);
@@ -83,7 +83,20 @@ exports.totalUser = async (req, res) => {
     try {
         const count = await userFuncs.countUser();
         if (count) {
-            return response.successResponse(res, res, count);
+            return response.successResponse(req, res, count);
+        } else {
+            return response.failResponse(req, res, "Something Went Wrong");
+        };
+    } catch (e) {
+        return response.errorResponse(req, res, e);
+    };
+};
+
+exports.getUserById = async (req, res) => {
+    try {
+        const get = await userFuncs.fetchUserById(req.body);
+        if (get) {
+            return response.successResponse(res, res, get);
         } else {
             return response.failResponse(req, res, "Something Went Wrong");
         };

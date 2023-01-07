@@ -15,3 +15,8 @@ exports.countProduct = async () => {
     const total = await productModel.count();
     return total;
 };
+
+exports.fetchProductById = async (body) => {
+    const result = await productModel.findOne({ _id: body._id });
+    return result
+};
