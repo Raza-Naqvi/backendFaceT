@@ -36,9 +36,9 @@ const userSchema = new Schema({
     city: {
         type: String
     },
-    image: {
-        type: String
-    },
+    // image: {
+    //     type: String
+    // },
     isAdmin: {
         type: Number,
         default: 0
