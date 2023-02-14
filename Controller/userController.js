@@ -50,34 +50,34 @@ exports.updateProfile = async (req, res) => {
     };
 };
 
-exports.forgotPassword = async (req, res) => {
-    try {
-        const forgot = await userFuncs.forgotPassword(req.body.email);
-        return response.successResponse(req, res, forgot);
-    } catch (error) {
-        return response.errorResponse(req, res, error);
-    };
-};
+// exports.forgotPassword = async (req, res) => {
+//     try {
+//         const forgot = await userFuncs.forgotPassword(req.body.email);
+//         return response.successResponse(req, res, forgot);
+//     } catch (error) {
+//         return response.errorResponse(req, res, error);
+//     };
+// };
 
-exports.newPassword = async (req, res) => {
-    try {
-        if (req.body.newPassword == req.body.confirmPassword) {
-            const password = await userFuncs.changePassword(req.body, req.user.id);
-        };
-        return response.successResponse(req, res, "Password changed successfully");
-    } catch (error) {
-        return response.errorResponse(req, res, error);
-    };
-};
+// exports.newPassword = async (req, res) => {
+//     try {
+//         if (req.body.newPassword == req.body.confirmPassword) {
+//             const password = await userFuncs.changePassword(req.body, req.user.id);
+//         };
+//         return response.successResponse(req, res, "Password changed successfully");
+//     } catch (error) {
+//         return response.errorResponse(req, res, error);
+//     };
+// };
 
-exports.verifyAccount = async (req, res) => {
-    try {
-        const check = await userFuncs.verify(req.body.otp);
-        return response.successResponse(req, res, check);
-    } catch (error) {
-        return response.errorResponse(req, res, error);
-    };
-};
+// exports.verifyAccount = async (req, res) => {
+//     try {
+//         const check = await userFuncs.verify(req.body.otp);
+//         return response.successResponse(req, res, check);
+//     } catch (error) {
+//         return response.errorResponse(req, res, error);
+//     };
+// };
 
 exports.totalUser = async (req, res) => {
     try {
