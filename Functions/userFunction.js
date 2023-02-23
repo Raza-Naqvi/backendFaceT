@@ -12,34 +12,34 @@ exports.fetchUser = async (body) => {
 };
 
 exports.fetchUserById = async (body) => {
-    const userById = await userModel.findOne({ _id: body._id });
+    const userById = await userModel.findOne({ userId: body.userId });
     return userById
 };
 
-exports.fetchUserByPhone = async (body) => {
-    const uResult = await userModel.findOne({ phone: body.phone });
-    return uResult;
-};
+// exports.fetchUserByPhone = async (body) => {
+//     const uResult = await userModel.findOne({ phone: body.phone });
+//     return uResult;
+// };
 
 exports.updateProfile = async (body, userId) => {
     const profile = await userModel.findByIdAndUpdate(userId, { $set: body });
     return profile;
 };
 
-exports.forgotPassword = async (email) => {
-    let user = await userModel.findOne({ email: email });
-    return user;
-};
+// exports.forgotPassword = async (email) => {
+//     let user = await userModel.findOne({ email: email });
+//     return user;
+// };
 
-exports.changePassword = async (body, userId) => {
-    const pass = await userModel.findByIdAndUpdate(userId, { $set: { password: body.confirmPassword } });
-    return pass;
-};
+// exports.changePassword = async (body, userId) => {
+//     const pass = await userModel.findByIdAndUpdate(userId, { $set: { password: body.confirmPassword } });
+//     return pass;
+// };
 
-exports.verify = async (otp) => {
-    const code = await userModel.findOne({ otp: otp });
-    return code;
-};
+// exports.verify = async (otp) => {
+//     const code = await userModel.findOne({ otp: otp });
+//     return code;
+// };
 
 exports.countUser = async () => {
     const count = await userModel.count();

@@ -29,5 +29,4 @@ app.listen(port, () => {
 
 app.use("/user", require("./Routes/userRoutes"));
 app.use("/product", require("./Routes/productRoute"));
-// app.use("/", require("./routes/subCategoryRoute"));
-// app.use("/", require("./routes/serviceTypeRoute"));
+app.use("/order", require("./Routes/orderRoute"));
